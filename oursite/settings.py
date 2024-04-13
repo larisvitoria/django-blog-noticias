@@ -127,7 +127,16 @@ USE_TZ = False  # Desativa o suporte a fusos horários (time zones) - Brasília 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.0/howto/static-files/
 
-STATIC_URL = 'static/'
+# Defina o diretório onde os arquivos estáticos serão coletados durante o deploy
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
+# Defina a URL base para servir arquivos estáticos
+STATIC_URL = '/static/'
+
+# Adicione o diretório de arquivos estáticos do seu aplicativo ao Django
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'static'),
+]
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
